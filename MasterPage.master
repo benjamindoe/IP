@@ -4,19 +4,25 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <title>CANOE</title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300|Oswald" rel="stylesheet">
     <link href="assets/css/main.min.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+    <header>
+        <nav>
+            <ul>
+                <li class="logo"><a href="Classes.aspx"><img src="assets/img/canoe-logo.png" alt="CANOE" /></a></li>
+                <li><a href="Classes.aspx">Car Classes</a></li>
+                <li><a href="Login.aspx">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
+    </asp:ContentPlaceHolder>
 </body>
 </html>
