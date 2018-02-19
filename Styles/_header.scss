@@ -1,0 +1,56 @@
+﻿header {
+    background: $bg-color;
+
+    .logo {
+        width: 200px;
+        text-align: center;
+        border-left: 1px solid $header-border;
+        margin-right: auto;
+        height: 80px;
+
+        img {
+            height: 100%;
+        }
+
+        a {
+            padding: 0;
+        }
+    }
+
+    nav {
+        position: relative;
+        padding: 0 50px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 81px;
+
+        li {
+            list-style: none;
+            border: 0 solid $header-border;
+            border-width: 1px 1px 0 1px;
+
+            &:last-child {
+                border-width: 1px 1px 0 0;
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+                padding: 30px 50px;
+                height: 100%;
+                box-sizing: border-box;
+                display: block;
+
+                &:hover {
+                    background: $bg-hover;
+                }
+            }
+        }
+    }
+}
