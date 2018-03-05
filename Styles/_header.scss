@@ -2,10 +2,8 @@
     background: $bg-color;
 
     .logo {
-        width: 200px;
+        width: 100px;
         text-align: center;
-        margin-right: auto;
-        height: 80px;
 
         img {
             height: 100%;
@@ -13,6 +11,10 @@
 
         a {
             padding: 0;
+
+            &:hover {
+                background: $bg-color;
+            }
         }
     }
 
@@ -27,12 +29,13 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        height: 81px;
 
         li {
             list-style: none;
-            border: 0 solid $header-border;
             border-width: 1px 1px 0 1px;
+            height: 50px;
+            line-height: 50px;
+            white-space: nowrap;
 
             &:last-child {
                 border-width: 1px 1px 0 0;
@@ -41,7 +44,7 @@
             a {
                 color: white;
                 text-decoration: none;
-                padding: 30px 50px;
+                padding: 0 20px;
                 height: 100%;
                 box-sizing: border-box;
                 display: block;
@@ -50,6 +53,35 @@
                     background: $bg-hover;
                 }
             }
+        }
+    }
+
+    .search-bar {
+        margin: 0 auto;
+        width: 50%;
+        position: relative;
+        padding: 5px 0;
+        box-sizing: border-box;
+
+        .search-bar__input {
+            width: 100%;
+            box-sizing: border-box;
+            padding-right: 35px;
+            height: 100%;
+            vertical-align: top;
+            font-size: 1.3rem;
+        }
+
+        button {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            height: 40px;
+            margin-top: -20px;
+            background: none;
+            border: none;
+            vertical-align: middle;
+            cursor: pointer;
         }
     }
 }
