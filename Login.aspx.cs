@@ -33,7 +33,7 @@ public partial class Login : System.Web.UI.Page
                     if (verificationResult != PasswordVerificationResult.Failed)
                     {
                         Session["isAuth"] = true;
-                        Session["username"] = username;
+                        Session["Username"] = username;
                         Session["isAdmin"] = reader["is_admin"] as bool? ?? false;
                         con.Close();
 

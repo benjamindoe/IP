@@ -11,6 +11,7 @@
         <asp:Label Text="Password" runat="server" AssociatedControlID="txtPassword" />
         <asp:TextBox runat="server" ID="txtPassword" type="password"/>
         <asp:Button Text="Login" ID="btnLogin" runat="server" OnClick="btnLogin_Click" />
+        <a href="/Register.aspx">Click here to Register</a> 
     </form>
 </asp:Content>
 
