@@ -14,13 +14,19 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul id="ulNavBar" runat="server">
-                <li class="logo"><a href="/"><img src="assets/img/canoe-logo.png" alt="CANOE" /></a></li>
-                <li><a href="Classes.aspx">Car Classes</a></li>
-                <li id="liLogin" runat="server"><a href="Login.aspx">Login</a></li>
-            </ul>
-        </nav>
+        <form action="/Search.aspx" method="get" id="headerForm">
+            <nav>
+                <ul id="ulNavBar" runat="server">
+                    <li class="logo"><a href="/"><img src="assets/img/canoe-logo.png" alt="CANOE" /></a></li>
+                    <li class="search-bar">
+                        <input type="text" ID="txtSearch" class="search-bar__input"/>
+                        <button type="submit"><i class="material-icons">search</i></button>
+                    </li>
+                    <li id="liLogin" runat="server"><a href="Login.aspx"><i class="material-icons">person</i> Login</a></li>
+                    <li id="liCart" runat="server"><a href="Cart.aspx"><i class="material-icons">shopping_cart</i> Cart</a></li>
+                </ul>
+            </nav>
+        </form>
     </header>
     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
     </asp:ContentPlaceHolder>

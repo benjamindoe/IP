@@ -12,20 +12,31 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         if (Session["isAuth"] != null && (bool)Session["isAuth"])
         {
+            ulNavBar.Controls.Remove(liCart);
             ulNavBar.Controls.Remove(liLogin);
-            HtmlGenericControl li = new HtmlGenericControl("li");
-            HtmlAnchor lnkProfile = new HtmlAnchor();
-            lnkProfile.HRef = "/Profile.aspx";
-            lnkProfile.InnerHtml = "<i class=\"material-icons\">person</i> Profile";
-            li.Controls.Add(lnkProfile);
-            ulNavBar.Controls.Add(li);
 
-            li = new HtmlGenericControl("li");
-            HtmlAnchor logout = new HtmlAnchor();
-            logout.HRef = "/Logout.aspx?redirect=" + Server.UrlEncode(Request.Url.PathAndQuery); ;
-            logout.InnerHtml = "Logout";
-            li.Controls.Add(logout);
-            ulNavBar.Controls.Add(li);
+            AddHeaderControl("/Profile.aspx", "<i class=\"material-icons\">person</i> Profile");
+
+            ulNavBar.Controls.Add(liCart);
+
+            string logoutPath = "/Logout.aspx?redirect=" + Server.UrlEncode(Request.Url.PathAndQuery);
+            AddHeaderControl(logoutPath, "<i class=\"material-icons\">power_settings_new</i> Logout");
+
+            if (Session["isAdmin"] != null && (bool)Session["isAdmin"])
+            {
+                AddHeaderControl("/Admin", "<i class=\"material-icons\">security</i>Admin");
+            }
         }
+    }
+
+    protected void AddHeaderControl(string href, string html)
+    {
+
+        HtmlGenericControl li = new HtmlGenericControl("li");
+        HtmlAnchor a = new HtmlAnchor();
+        a.HRef = href;
+        a.InnerHtml = html;
+        li.Controls.Add(a);
+        ulNavBar.Controls.Add(li);
     }
 }
