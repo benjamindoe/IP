@@ -12,10 +12,21 @@ public partial class Admin_MasterPage : System.Web.UI.MasterPage
     {
         if (Session["isAuth"] != null && (bool)Session["isAuth"])
         {
+            if (Session["isAdmin"] != null && (bool)Session["isAdmin"])
+            {
+                // THEY HAVE ACCESS HERE...
 
-        } else
+            }
+            else
+            {
+                Response.StatusCode = 403;
+                Response.Flush();
+                Response.End();
+            }
+        }
+        else
         {
-            Response.Redirect("/Login.aspx");
+            Response.Redirect("/Login.aspx?redirect=" + Server.UrlEncode(Request.Url.PathAndQuery));
         }
     }
 }
