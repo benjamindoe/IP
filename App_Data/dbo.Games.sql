@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Games] (
-    [id]             INT          NOT NULL IDENTITY,
+    [id]             INT          IDENTITY (1, 1) NOT NULL,
     [title]          VARCHAR (50) NOT NULL,
-    [description]    TEXT         NULL,
+    [description]    VARCHAR(MAX)         NULL,
     [overall_rating] TINYINT      NULL,
     [price]          INT          NOT NULL,
     [release_date]   DATE         NULL,
