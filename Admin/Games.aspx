@@ -98,12 +98,12 @@
 
                 <asp:TemplateField HeaderText="Image">
                     <EditItemTemplate>
-                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("image") %>' Width="200" />
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("image") %>' Width="100" />
                         <asp:HiddenField ID="hdnOldImage" runat="server" Value='<%# Eval("image") %>' />
                         <asp:FileUpload ID="fileImage" runat="server" />
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("image") %>' Width="200"/>
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("image") %>' Width="150"/>
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:FileUpload ID="fileNewImage" runat="server" />
@@ -141,7 +141,6 @@
             <UpdateParameters>
                 <asp:Parameter Name="title" Type="String" />
                 <asp:Parameter Name="description" Type="String" />
-                <asp:Parameter Name="overall_rating" Type="Byte" />
                 <asp:Parameter Name="price" Type="Int32" />
                 <asp:Parameter DbType="Date" Name="release_date" />
                 <asp:Parameter Name="age_rating" Type="String" />
