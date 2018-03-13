@@ -17,7 +17,7 @@
         <form action="/Search.aspx" method="get" id="headerForm">
             <nav>
                 <ul id="ulNavBar" runat="server">
-                    <li class="logo"><a href="/"><img src="assets/img/canoe-logo.png" alt="CANOE" /></a></li>
+                    <li class="logo"><a href="/"><img src="/assets/img/canoe-logo.png" alt="CANOE" /></a></li>
                     <li class="search-bar">
                         <input type="text" ID="txtSearch" class="search-bar__input"/>
                         <button type="submit"><i class="material-icons">search</i></button>
