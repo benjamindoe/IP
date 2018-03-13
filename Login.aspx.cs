@@ -16,7 +16,7 @@ public partial class Login : System.Web.UI.Page
         string username = txtUsername.Text;
         string password = txtPassword.Text;
 
-        string conStr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        string conStr = ConfigurationManager.ConnectionStrings["ConnectionString2"].ConnectionString;
         using (SqlConnection con = new SqlConnection(conStr))
         {
             con.Open();
