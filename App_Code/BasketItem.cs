@@ -34,22 +34,23 @@ public class BasketItem
         HtmlGenericControl item = new HtmlGenericControl("div");
         item.Attributes.Add("class", "basket-item");
 
-        HtmlGenericControl htmlItem = new HtmlGenericControl("div");
+        HtmlGenericControl details = new HtmlGenericControl("div");
+        details.Attributes.Add("class", "item-details");
         HtmlImage img = new HtmlImage
         {
             Src = this.Product.ImagePath,
         };
         img.Attributes.Add("class", "item-img");
-        item.Controls.Add(img);
+        details.Controls.Add(img);
 
         HtmlAnchor title = new HtmlAnchor
         {
-            HRef = "/Games.aspx?id=" + this.Product.ID,
+            HRef = "/GameDetails.aspx?id=" + this.Product.ID,
             InnerText = this.Product.Title
         };
         title.Attributes.Add("class", "item-title");
-        item.Controls.Add(title);
-
+        details.Controls.Add(title);
+        item.Controls.Add(details);
         HtmlGenericControl price = new HtmlGenericControl("div")
         {
             InnerHtml = "&pound;" + this.Product.Price
@@ -59,7 +60,7 @@ public class BasketItem
 
         HtmlGenericControl quantity = new HtmlGenericControl("div")
         {
-            InnerHtml = "&pound;" + this.Product.Price,
+            InnerText = this.Quantity.ToString(),
             ID = "itemQuantity" + this.Product.ID
         };
         quantity.Attributes.Add("class", "item-quantity");
