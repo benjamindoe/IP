@@ -1,11 +1,23 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Admin_MasterPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <link href="/assets/css/admin.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
+    <header>
+        <nav>
+            <ul>
+                <li class="logo"><a href="/"><img src="/assets/img/canoe-logo.png" alt="CANOE" /></a></li>
+                <li><a href="/Admin"><i class="material-icons">dashboard</i> Dashboard</a></li>
+                <li><a href="Users.aspx"><i class="material-icons">person</i> Users</a></li>
+                <li><a href="Games.aspx"><i class="material-icons">games</i> Games</a></li>
+                <li><a href="Orders.aspx"><i class="material-icons">history</i> Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+    <asp:ContentPlaceHolder id="body" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
 
