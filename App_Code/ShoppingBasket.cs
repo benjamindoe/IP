@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-public class Basket
+public class ShoppingBasket
 {
     private List<BasketItem> items;
 
-    public Basket()
+    public ShoppingBasket()
     {
         items = new List<BasketItem>();
     }
@@ -51,14 +51,14 @@ public class Basket
         }
     }
 
-    public static Basket GetBasket()
+    public static ShoppingBasket GetBasket()
     {
-        Basket basket = (Basket)HttpContext.Current.Session["Cart"];
+        ShoppingBasket basket = (ShoppingBasket)HttpContext.Current.Session["Basket"];
         if (basket == null) // if no basket make one and store it in current session
         {
-            HttpContext.Current.Session["Cart"] = new Basket();
+            HttpContext.Current.Session["Basket"] = new ShoppingBasket();
         }
-        return (Basket)HttpContext.Current.Session["Cart"];
+        return (ShoppingBasket)HttpContext.Current.Session["Basket"];
     }
 
     public void AddItem(Product product, int quantity)
@@ -75,5 +75,10 @@ public class Basket
     public void Clear()
     {
         items.Clear();
+    }
+
+    public List<BasketItem> Items()
+    {
+        return items;
     }
 }
