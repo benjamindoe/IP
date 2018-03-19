@@ -4,8 +4,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <form runat="server" id="form1">
-        <div class="basket" id="BasketControl" runat="server">
+        <div class="basket">
+        <h2>Shopping Basket</h2>
+            <div class="basket-header">
+                <span class="header-item header-item-details">Product</span>
+                <span class="header-item header-item-price">Price</span>
+                <span class="header-item header-item-quantity">Quantity</span>
+            </div>
+            <div class="basket-inner" id="BasketControl" runat="server">
 
+            </div>
+            <asp:Button ID="btnCheckout" Text="Checkout" runat="server" CssClass="btn btn-checkout" OnClick="btnCheckout_Click"/>
+            <a href="/">Continue shopping</a>
         </div>
     </form>
 </asp:Content>
