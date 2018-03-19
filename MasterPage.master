@@ -6,7 +6,7 @@
 <head runat="server">
     <title>CANOE</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato:300|Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Oswald" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/css/main.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder id="head" runat="server">
