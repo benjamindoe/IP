@@ -79,6 +79,16 @@ header {
       vertical-align: middle;
       cursor: pointer; }
 
+.btn {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #c50027;
+  color: white;
+  cursor: pointer;
+  font-weight: bolder; }
+  .btn:hover {
+    background-color: #d0183d; }
+
 .fm-form-login {
   display: inline-flex;
   position: absolute;
@@ -115,11 +125,38 @@ header {
       margin: 15px auto 10px;
       width: 100%;
       padding: 10px 20px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      background-color: #c50027;
-      color: white;
-      font-weight: bolder;
-      font-size: 1.1rem;
-      cursor: pointer; }
+      font-size: 1.1rem; }
+
+.basket {
+  padding: 0 15px; }
+  .basket h2 {
+    text-align: center; }
+  .basket .btn-checkout {
+    padding: 10px;
+    margin: 10px 10px 0 0;
+    width: 150px;
+    float: right; }
+
+.basket-item, .basket-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #808080; }
+  .basket-item .header-item-quantity, .basket-item .header-item-price, .basket-header .header-item-quantity, .basket-header .header-item-price {
+    margin-right: auto; }
+  .basket-item .header-item-details, .basket-header .header-item-details {
+    width: 63%; }
+  .basket-item .item-details, .basket-header .item-details {
+    display: flex;
+    width: 63%;
+    align-items: center; }
+  .basket-item .item-img, .basket-header .item-img {
+    height: 150px;
+    border-radius: 1px; }
+  .basket-item .item-quantity, .basket-item .item-price, .basket-header .item-quantity, .basket-header .item-price {
+    margin-right: auto; }
+  .basket-item .item-title, .basket-header .item-title {
+    margin-left: 20px; }
 
