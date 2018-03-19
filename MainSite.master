@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MainSite.master.cs" Inherits="MainSite" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
+    <header>
+        <form action="/Search.aspx" method="get" id="headerForm">
+            <nav>
+                <ul id="ulNavBar" runat="server">
+                    <li class="logo"><a href="/"><img src="/assets/img/canoe-logo.png" alt="CANOE" /></a></li>
+                    <li class="search-bar">
+                        <input type="text" ID="txtSearch" class="search-bar__input"/>
+                        <button type="submit"><i class="material-icons">search</i></button>
+                    </li>
+                    <li id="liLogin" runat="server"><a href="Login.aspx"><i class="material-icons">person</i> Login</a></li>
+                    <li id="liCart" runat="server"><a href="Cart.aspx"><i class="material-icons">shopping_cart</i> Cart</a></li>
+                </ul>
+            </nav>
+        </form>
+    </header>
+    <asp:ContentPlaceHolder id="body" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
