@@ -20,11 +20,13 @@ public partial class GameDetails : System.Web.UI.Page
                     if (reader.HasRows)
                     {
                         reader.Read();
-                        GameImage.Src = reader["image"].ToString();
-                        GameTitle.InnerText = reader["title"].ToString();
-                        GameDesc.InnerText = reader["description"].ToString();
-                        string price = reader["price"].ToString();
-                        string ageRating = reader["age_rating"].ToString();
+                        hdnID.Value = id;
+                        GameImage.Src        = hdnImage.Value       = reader["image"].ToString();
+                        GameTitle.InnerText  = hdnTitle.Value       = reader["title"].ToString();
+                        GameDesc.InnerText   = hdnDescription.Value = reader["description"].ToString();
+                        hdnPrice.Value = reader["price"].ToString();
+                        GamePrice.InnerHtml  = "&pound;" + reader["price"].ToString();
+                        string ageRating     = reader["age_rating"].ToString();
                         DateTime releaseDate = Convert.ToDateTime(reader["release_date"]);
                     }
                 }
@@ -34,5 +36,27 @@ public partial class GameDetails : System.Web.UI.Page
         {
             Response.Redirect("/");
         }
+    }
+
+    protected void btnAddBasket_Click(object sender, EventArgs e)
+    {
+        ShoppingBasket basket = ShoppingBasket.GetBasket();
+        BasketItem item = basket[hdnID.Value];
+        if (item == null)
+        {
+            Product product = new Product
+            {
+                ID = int.Parse(hdnID.Value),
+                Title = hdnTitle.Value,
+                Description = hdnDescription.Value,
+                Price = decimal.Parse(hdnPrice.Value),
+                ImagePath = hdnImage.Value
+            };
+            basket.AddItem(product, 1);
+        } else
+        {
+            item.AddQuantity(1);
+        }
+        Response.Redirect("Basket.aspx");
     }
 }
