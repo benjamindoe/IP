@@ -15,7 +15,7 @@
                 <asp:TextBox runat="server" ID="txtPassword" type="password" CssClass="fm-input" placeholder="Password"/>
             </div>
             <div class="fm-control">
-                <asp:Button Text="Login" ID="btnLogin" runat="server" OnClick="btnLogin_Click" />
+                <asp:Button Text="Login" ID="btnLogin" runat="server" OnClick="btnLogin_Click" CssClass="btn"/>
                 <a href="/Register.aspx">Register</a> 
             </div>
         </div>
