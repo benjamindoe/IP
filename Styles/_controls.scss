@@ -1,0 +1,12 @@
+﻿.btn {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: $main-color;
+    color: white;
+    cursor: pointer;
+    font-weight: bolder;
+
+    &:hover {
+        background-color: $bg-hover;
+    }
+}
