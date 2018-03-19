@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
-  font-weight: 300;
   height: 100%;
   width: 100%;
   box-sizing: border-box; }
@@ -17,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
 header {
   background: #c50027; }
   header .logo {
-    width: 100px;
+    width: 140px;
     text-align: center; }
     header .logo img {
       height: 100%; }
@@ -27,7 +26,7 @@ header {
         background: #c50027; }
   header nav {
     position: relative;
-    padding: 0 50px; }
+    padding: 0 10px; }
   header ul {
     margin: 0;
     padding: 0;
@@ -53,17 +52,22 @@ header {
           background: #d0183d; }
   header .search-bar {
     margin: 0 auto;
-    width: 50%;
+    width: 55%;
     position: relative;
     padding: 5px 0;
     box-sizing: border-box; }
     header .search-bar .search-bar__input {
       width: 100%;
+      height: 40px;
       box-sizing: border-box;
+      padding: 5px 15px;
       padding-right: 35px;
-      height: 100%;
       vertical-align: top;
-      font-size: 1.3rem; }
+      font-size: 1.2rem;
+      line-height: 40px;
+      font-family: 'Lato', sans-serif;
+      border: 1px solid #8a0c25;
+      border-radius: 3px; }
     header .search-bar button {
       position: absolute;
       right: 0;
