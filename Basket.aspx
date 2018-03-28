@@ -11,9 +11,7 @@
                 <span class="header-item header-item-price">Price</span>
                 <span class="header-item header-item-quantity">Quantity</span>
             </div>
-            <div class="basket-inner" id="BasketControl" runat="server">
-
-            </div>
+            <div class="basket-inner" id="BasketContent" runat="server"></div>
             <asp:Button ID="btnCheckout" Text="Checkout" runat="server" CssClass="btn btn-checkout" OnClick="btnCheckout_Click"/>
             <a href="/">Continue shopping</a>
         </div>

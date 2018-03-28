@@ -21,22 +21,22 @@ public partial class Basket : System.Web.UI.Page
             {
                 BasketItem item = basket[i];
                 HtmlGenericControl html = item.ToHtml();
-                BasketControl.Controls.Add(html);
+                BasketContent.Controls.Add(html);
             }
         } else
         {
+            btnCheckout.Visible = false;
             HtmlGenericControl h2 = new HtmlGenericControl("h2")
             {
                 InnerText = "Your Basket is Empty"
             };
-            BasketControl.Controls.Add(h2);
-            Page.Controls.Remove(btnCheckout);
+            BasketContent.Controls.Add(h2);
         }
     }
 
     protected void btnCheckout_Click(object sender, EventArgs e)
     {
-        if (Session["isLoggedIn"] as bool? ?? false)
+        if (Session["isAuth"] != null && (bool)Session["isAuth"])
         {
             ShoppingBasket basket = ShoppingBasket.GetBasket();
             string username = (string)Session["username"];
@@ -46,7 +46,7 @@ public partial class Basket : System.Web.UI.Page
             using (SqlConnection con = new SqlConnection(conStr))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO [Orders]([user_id], [subtotal], [date]) OUTPUT INSERTED.ID VALUES (@username, @subtotal, GETDATE())", con))
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO [Orders]([user_id], [subtotal], [date]) OUTPUT INSERTED.ID VALUES (@userId, @subtotal, GETDATE())", con))
                 {
                     cmd.Parameters.AddWithValue("@userId", userId);
                     cmd.Parameters.AddWithValue("@subtotal", basket.SubTotal);
