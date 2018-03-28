@@ -18,28 +18,24 @@ public partial class Admin_Games : System.Web.UI.Page
     {
         GridViewRow currentRow = GridView1.Rows[GridView1.EditIndex];
         FileUpload file = (FileUpload)currentRow.FindControl("fileImage");
+        HiddenField oldFile = (HiddenField)currentRow.FindControl("hdnOldImage");
         if (file != null && file.HasFile)
         {
             string uploadPath = "/Uploads/";
             string serverPath = Server.MapPath(uploadPath);
-            HiddenField oldFile = (HiddenField)currentRow.FindControl("hdnOldImage");
-            if (oldFile != null)
+            if (oldFile != null && oldFile.Value != "")
             {
                 string oldPath = Server.MapPath(oldFile.Value);
                 System.IO.File.Delete(oldPath);
             }
-            try
-            {
                 string fileName = UploadImage(file);
                 GamesSqlDataSource.UpdateParameters["image"].DefaultValue = fileName;
-                GamesSqlDataSource.DataBind();
-                GamesSqlDataSource.Update();
-            }
-            catch
-            {
-
-            }
+        } else
+        {
+            GamesSqlDataSource.UpdateParameters["image"].DefaultValue = oldFile.Value;
         }
+        //GamesSqlDataSource.DataBind();
+        GamesSqlDataSource.Update();
         return;
     }
 

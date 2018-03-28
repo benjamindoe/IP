@@ -1,0 +1,49 @@
+.game {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+
+    .left-col, .right-col {
+        width: 100%;
+        position: relative;
+    }
+
+    .left-col {
+        max-width: 250px;
+        margin-right: 20px;
+    }
+
+    &-image {
+        width: 250px;
+    }
+
+    &-description {
+        margin-bottom: 50px;
+    }
+
+    .price-area {
+        max-width: 250px;
+        float: right;
+
+        .btn-add-basket {
+            width: 100%;
+            display: block;
+            height: 60px;
+            border: none;
+            background: $main-color;
+            font-size: 1.5em;
+            color: white;
+            margin-top: 25px;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        &_price {
+            font-size: 1.5em;
+
+            span {
+                float: right;
+            }
+        }
+    }
+}

@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <form id="form1" runat="server" enctype="multipart/form-data">
         <asp:Label Text="" runat="server" ID="lblErrors" />
         <asp:GridView
@@ -48,15 +48,15 @@
                     </FooterTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Descrition" SortExpression="description">
+                <asp:TemplateField HeaderText="Description" SortExpression="description">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtDescription" runat="server" Text='<%# Bind("description") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtDescription" runat="server" TextMode="multiline" Columns="50" Rows="5" Text='<%# Bind("description") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblDescription" runat="server" Text='<%# Bind("description") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtNewDescription" runat="server"></asp:TextBox>
+                        <asp:TextBox TextMode="multiline" ID="txtNewDescription" runat="server" Columns="55" Rows="10" ></asp:TextBox>
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -65,7 +65,7 @@
                         <asp:TextBox ID="txtPrice" runat="server" Text='<%# Bind("price") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lblPrice" runat="server" Text='<%# Bind("price") %>'></asp:Label>
+                        £<asp:Label ID="lblPrice" runat="server" Text='<%# Bind("price") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtNewPrice" runat="server" type="number"></asp:TextBox>
