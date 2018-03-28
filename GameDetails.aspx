@@ -10,12 +10,19 @@
             <asp:HiddenField runat="server" ID="hdnDescription"/>
             <asp:HiddenField runat="server" ID="hdnPrice"/>
             <asp:HiddenField runat="server" ID="hdnImage"/>
-
-            <img src="/" class="game-image" id="GameImage" runat="server"/>
-            <h2 runat="server" id="GameTitle"></h2>
-            <p runat="server" id="GameDesc"></p>
-            <span runat="server" id="GamePrice"></span>
-            <asp:Button Text="Add to Basket" id="btnAddBasket" runat="server" OnClick="btnAddBasket_Click" style="height: 29px" />
+            <div class="left-col">
+                <img src="/" class="game-image" id="GameImage" runat="server"/>
+            </div>
+            <div class="right-col">
+                <h2 runat="server" id="GameTitle"></h2>
+                <p runat="server" id="GameDesc" class="game-description"></p>
+                <div class="price-area">
+                    <p class="price-area_price">
+                        Price: <span runat="server" id="GamePrice" class=""></span>
+                    </p>
+                    <asp:Button Text="ADD TO BASKET" id="btnAddBasket" runat="server" OnClick="btnAddBasket_Click" class="btn-add-basket" />
+                </div>
+            </div>
         </div>
     </form>
 </asp:Content>

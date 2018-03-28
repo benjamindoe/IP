@@ -20,7 +20,9 @@
                 </ul>
             </nav>
     </header>
-    <asp:ContentPlaceHolder id="body" runat="server">
-    </asp:ContentPlaceHolder>
+    <div class="body-wrap">
+        <asp:ContentPlaceHolder id="body" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
 </asp:Content>
 

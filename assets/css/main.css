@@ -13,6 +13,9 @@ h1, h2, h3, h4, h5, h6 {
 .material-icons {
   vertical-align: middle; }
 
+button, input, p, span, textarea {
+  font-family: 'Lato', sans-serif; }
+
 header {
   background: #c50027; }
   header .logo {
@@ -89,6 +92,15 @@ header {
   .btn:hover {
     background-color: #d0183d; }
 
+body {
+  background: #eeeeee; }
+
+.body-wrap {
+  max-width: 900px;
+  margin: 15px auto;
+  background: white;
+  min-height: 80%; }
+
 .fm-form-login {
   display: inline-flex;
   position: absolute;
@@ -159,4 +171,37 @@ header {
     margin-right: auto; }
   .basket-item .item-title, .basket-header .item-title {
     margin-left: 20px; }
+
+.game {
+  display: flex;
+  justify-content: center;
+  padding: 50px; }
+  .game .left-col, .game .right-col {
+    width: 100%;
+    position: relative; }
+  .game .left-col {
+    max-width: 250px;
+    margin-right: 20px; }
+  .game-image {
+    width: 250px; }
+  .game-description {
+    margin-bottom: 50px; }
+  .game .price-area {
+    max-width: 250px;
+    float: right; }
+    .game .price-area .btn-add-basket {
+      width: 100%;
+      display: block;
+      height: 60px;
+      border: none;
+      background: #c50027;
+      font-size: 1.5em;
+      color: white;
+      margin-top: 25px;
+      padding: 15px;
+      cursor: pointer; }
+    .game .price-area_price {
+      font-size: 1.5em; }
+      .game .price-area_price span {
+        float: right; }
 

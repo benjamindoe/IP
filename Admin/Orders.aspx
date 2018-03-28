@@ -6,10 +6,15 @@
     <form runat="server" id="form1">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="OrdersDataSource" ShowHeaderWhenEmpty="True">
             <Columns>
-                <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" />
-                <asp:BoundField DataField="user_id" HeaderText="user_id" SortExpression="user_id" />
-                <asp:BoundField DataField="subtotal" HeaderText="subtotal" SortExpression="subtotal" />
-                <asp:BoundField DataField="date" DataFormatString="{0:&quot;dd/mm/YYYY&quot;}" HeaderText="date" SortExpression="date" />
+                <asp:BoundField DataField="id" HeaderText="ID" ReadOnly="True" SortExpression="id" />
+                <asp:BoundField DataField="user_id" HeaderText="User ID" SortExpression="user_id" />
+                <asp:BoundField DataField="subtotal" HeaderText="Subtotal" SortExpression="subtotal" />
+                <asp:BoundField DataField="date" DataFormatString="{0: dd/MM/yyyy}" HeaderText="Date" SortExpression="date" />
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "/Order.aspx?id=" + Eval("id") %>' Text="Details"></asp:HyperLink>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="OrdersDataSource" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" DeleteCommand="DELETE FROM [Orders] WHERE [id] = @original_id AND [user_id] = @original_user_id AND [subtotal] = @original_subtotal AND [date] = @original_date" InsertCommand="INSERT INTO [Orders] ([id], [user_id], [subtotal], [date]) VALUES (@id, @user_id, @subtotal, @date)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Orders]" UpdateCommand="UPDATE [Orders] SET [user_id] = @user_id, [subtotal] = @subtotal, [date] = @date WHERE [id] = @original_id AND [user_id] = @original_user_id AND [subtotal] = @original_subtotal AND [date] = @original_date">
