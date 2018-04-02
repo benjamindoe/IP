@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <form runat="server" id="form1">
         <div class="basket">
-        <h2>Shopping Basket</h2>
+        <h1>Shopping Basket</h1>
             <div class="basket-header">
                 <span class="header-item header-item-details">Product</span>
                 <span class="header-item header-item-price">Price</span>
