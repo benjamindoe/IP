@@ -69,8 +69,7 @@ header {
       font-size: 1.2rem;
       line-height: 40px;
       font-family: 'Lato', sans-serif;
-      border: 1px solid #8a0c25;
-      border-radius: 3px; }
+      border: 1px solid #8a0c25; }
     header .search-bar button {
       position: absolute;
       right: 0;
@@ -88,9 +87,17 @@ header {
   background-color: #c50027;
   color: white;
   cursor: pointer;
-  font-weight: bolder; }
+  font-weight: bolder;
+  min-width: 10em;
+  font-size: 1.1em; }
   .btn:hover {
     background-color: #d0183d; }
+
+input, textarea {
+  border-radius: 3px;
+  border: 1px solid #808080;
+  margin-bottom: 5px;
+  padding: 5px; }
 
 body {
   background: #eeeeee; }
@@ -99,7 +106,9 @@ body {
   max-width: 900px;
   margin: 15px auto;
   background: white;
-  min-height: 80%; }
+  min-height: 80%;
+  padding: 20px;
+  box-sizing: border-box; }
 
 .fm-form-login {
   display: inline-flex;
@@ -136,8 +145,7 @@ body {
       display: block;
       margin: 15px auto 10px;
       width: 100%;
-      padding: 10px 20px;
-      font-size: 1.1rem; }
+      padding: 10px 20px; }
 
 .basket {
   padding: 0 15px; }
@@ -204,4 +212,48 @@ body {
       font-size: 1.5em; }
       .game .price-area_price span {
         float: right; }
+
+.orders {
+  padding: 0; }
+  .orders li {
+    display: block; }
+  .orders .order {
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-bottom: 35px; }
+    .orders .order-header, .orders .order-body {
+      padding: 15px; }
+    .orders .order-header {
+      box-sizing: border-box;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background: #eeeeee;
+      border-bottom: 1px solid #a3a3a3; }
+    .orders .order-body {
+      padding: 15px; }
+      .orders .order-body h2 {
+        margin: 0; }
+  .orders .order-items {
+    padding: 0; }
+    .orders .order-items .item {
+      overflow: hidden;
+      margin-top: 15px; }
+      .orders .order-items .item-image {
+        width: 100px;
+        position: relative;
+        float: left; }
+        .orders .order-items .item-image img {
+          width: 100%; }
+      .orders .order-items .item-title, .orders .order-items .item-price {
+        padding-left: 110px; }
+
+.user-profile .fm-input {
+  display: block;
+  width: 20em;
+  font-size: 1.1em; }
+
+.user-profile .fm-footer {
+  margin-top: 10px; }
+  .user-profile .fm-footer .btn {
+    padding: 10px 20px; }
 
