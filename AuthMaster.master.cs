@@ -7,13 +7,9 @@ using System.Web.UI.WebControls;
 
 public partial class AuthMaster : System.Web.UI.MasterPage
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Init(object sender, EventArgs e)
     {
-        if (Session["isAuth"] != null && (bool)Session["isAuth"])
-        {
-
-        }
-        else
+        if (Session["isAuth"] == null || !(bool)Session["isAuth"])
         {
             Response.Redirect("/Login.aspx?redirect=" + Server.UrlEncode(Request.Url.PathAndQuery));
         }
