@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web;
 
 public partial class GameDetails : System.Web.UI.Page
 {
@@ -21,20 +22,30 @@ public partial class GameDetails : System.Web.UI.Page
                     {
                         reader.Read();
                         hdnID.Value = id;
-                        GameImage.Src        = hdnImage.Value       = reader["image"].ToString();
-                        GameTitle.InnerText  = hdnTitle.Value       = reader["title"].ToString();
-                        GameDesc.InnerText   = hdnDescription.Value = reader["description"].ToString();
+                        GameImage.Src = hdnImage.Value = reader["image"].ToString();
+                        GameTitle.InnerText = reader["title"].ToString();
+                        hdnTitle.Value = reader["title"].ToString();
+                        GameDesc.InnerText = reader["description"].ToString();
+                        hdnDescription.Value = reader["description"].ToString();
                         hdnPrice.Value = reader["price"].ToString();
-                        GamePrice.InnerHtml  = "&pound;" + reader["price"].ToString();
-                        string ageRating     = reader["age_rating"].ToString();
+                        GamePrice.InnerText =  "£" + reader["price"].ToString();
+                        string ageRating = reader["age_rating"].ToString();
                         DateTime releaseDate = Convert.ToDateTime(reader["release_date"]);
+                    }
+                    else
+                    {
+                        Response.Clear();
+                        Response.StatusCode = 404;
+                        Response.End();
                     }
                 }
                 con.Close();
             }
         } else
         {
-            Response.Redirect("/");
+            Response.Clear();
+            Response.StatusCode = 404;
+            Response.End();
         }
     }
 
