@@ -18,6 +18,7 @@ public partial class Order : System.Web.UI.Page
                                 [Orders].[id],
                                 [Orders].[subtotal],
                                 [Orders].[date],
+                                [Orders].[user_id],
                                 [Games].[Title],
                                 [OrderItems].[quantity] 
                             FROM
@@ -34,15 +35,22 @@ public partial class Order : System.Web.UI.Page
                                 [Orders].[id] = @id";
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
-                cmd.Parameters.AddWithValue("@id", Request.QueryString["id"]);
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                if (Request.QueryString["id"] != null)
                 {
-                    reader.Read();
-                    if ((int)reader["user_id"] == (int)Session["userId"] || Session["isAdmin"] != null && (bool)Session["isAdmin"])
+                    cmd.Parameters.AddWithValue("@id", Request.QueryString["id"]);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
                     {
+                        reader.Read();
+                        if ((int)reader["user_id"] == (int)Session["userId"] || Session["isAdmin"] != null && (bool)Session["isAdmin"])
+                        {
 
+                        }
                     }
+                }
+                else
+                {
+                    Response.Redirect("/");
                 }
             }
         }
