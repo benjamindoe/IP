@@ -5,8 +5,17 @@
     color: white;
     cursor: pointer;
     font-weight: bolder;
-
+    min-width: 10em;
+    font-size: 1.1em;
     &:hover {
         background-color: $bg-hover;
     }
 }
+
+input, textarea {
+    border-radius: 3px;
+    border: 1px solid $dark-grey;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+

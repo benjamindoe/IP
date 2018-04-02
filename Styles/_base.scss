@@ -1,9 +1,11 @@
 ﻿body {
-    background: $grey;
+    background: $light-grey;
 }
 .body-wrap {
     max-width: 900px;
     margin: 15px auto;
     background: white;
     min-height: 80%;
+    padding: 20px;
+    box-sizing: border-box;
 }
