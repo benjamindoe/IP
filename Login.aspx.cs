@@ -34,7 +34,7 @@ public partial class Login : System.Web.UI.Page
                     {
                         Session["isAuth"] = true;
                         Session["username"] = username;
-                        Session["userId"] = reader["id"].ToString();
+                        Session["userId"] = (int)reader["id"];
                         Session["isAdmin"] = reader["is_admin"] as bool? ?? false;
                         con.Close();
 
