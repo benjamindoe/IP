@@ -10,7 +10,7 @@
                 <ul id="ulNavBar" runat="server">
                     <li class="logo"><a href="/"><img src="/assets/img/canoe-logo.png" alt="CANOE" /></a></li>
                     <li class="search-bar">
-                        <form action="/Search.aspx" method="get" id="headerForm">
+                        <form action="/" method="get" id="headerForm">
                             <input type="text" ID="txtSearch" name="query" class="search-bar__input" placeholder="Seach for a Game..."/>
                             <button type="submit"><i class="material-icons">search</i></button>
                         </form>
@@ -23,6 +23,15 @@
     <div class="body-wrap">
         <asp:ContentPlaceHolder id="body" runat="server">
         </asp:ContentPlaceHolder>
+        <% if (Session["isAuth"] != null && (bool)Session["isAuth"])
+            { %>
+        <div class="suggested-games">
+            <h2>Games you may like...</h2>
+            <div class="suggested-games-carousel"  id="divSuggestedGames" runat="server">
+
+            </div>
+            <%} %>
+        </div>
     </div>
 </asp:Content>
 

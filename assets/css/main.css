@@ -103,12 +103,43 @@ body {
   background: #eeeeee; }
 
 .body-wrap {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 15px auto;
   background: white;
   min-height: 80%;
   padding: 20px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  overflow: hidden; }
+
+.home-games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .home-games .game {
+    margin: 10px 5px;
+    width: 200px;
+    min-height: 360px;
+    padding: 20px;
+    border: 1px solid #a3a3a3;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+    .home-games .game .img-wrap {
+      min-height: 300px;
+      display: flex;
+      align-items: center; }
+    .home-games .game img {
+      max-height: 300px;
+      max-width: 200px;
+      display: block;
+      margin: 0 auto; }
+    .home-games .game h2 {
+      /*margin: 0;*/ }
+    .home-games .game-price {
+      float: right;
+      line-height: 2.5em; }
+
+.home-form > h2, .home-form > p {
+  text-align: center; }
 
 .fm-form-login {
   display: inline-flex;
@@ -156,6 +187,9 @@ body {
     margin: 10px 10px 0 0;
     width: 150px;
     float: right; }
+  .basket-subtotal {
+    float: right;
+    margin: 20px 30px 0 0; }
 
 .basket-item, .basket-header {
   position: relative;
@@ -180,72 +214,77 @@ body {
   .basket-item .item-title, .basket-header .item-title {
     margin-left: 20px; }
 
-.game {
+.gamepage-game {
   display: flex;
   justify-content: center;
   padding: 50px; }
-  .game .left-col, .game .right-col {
+  .gamepage-game .left-col, .gamepage-game .right-col {
     width: 100%;
     position: relative; }
-  .game .left-col {
+  .gamepage-game .left-col {
     max-width: 250px;
     margin-right: 20px; }
-  .game-image {
-    width: 250px; }
-  .game-description {
-    margin-bottom: 50px; }
-  .game .price-area {
-    max-width: 250px;
-    float: right; }
-    .game .price-area .btn-add-basket {
-      width: 100%;
-      display: block;
-      height: 60px;
-      border: none;
-      background: #c50027;
-      font-size: 1.5em;
-      color: white;
-      margin-top: 25px;
-      padding: 15px;
-      cursor: pointer; }
-    .game .price-area_price {
-      font-size: 1.5em; }
-      .game .price-area_price span {
-        float: right; }
+
+.game-image {
+  width: 250px; }
+
+.game-description {
+  margin-bottom: 50px; }
+
+.game .price-area {
+  max-width: 250px;
+  float: right; }
+  .game .price-area .btn-add-basket {
+    width: 100%;
+    display: block;
+    height: 60px;
+    border: none;
+    background: #c50027;
+    font-size: 1.5em;
+    color: white;
+    margin-top: 25px;
+    padding: 15px;
+    cursor: pointer; }
+  .game .price-area_price {
+    font-size: 1.5em; }
+    .game .price-area_price span {
+      float: right; }
 
 .orders {
   padding: 0; }
   .orders li {
     display: block; }
-  .orders .order {
-    border: 1px solid grey;
-    border-radius: 5px;
-    margin-bottom: 35px; }
-    .orders .order-header, .orders .order-body {
-      padding: 15px; }
-    .orders .order-header {
-      box-sizing: border-box;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      background: #eeeeee;
-      border-bottom: 1px solid #a3a3a3; }
-    .orders .order-body {
-      padding: 15px; }
-      .orders .order-body h2 {
-        margin: 0; }
-  .orders .order-items {
-    padding: 0; }
-    .orders .order-items .item {
-      overflow: hidden;
-      margin-top: 15px; }
-      .orders .order-items .item-image {
-        width: 100px;
-        position: relative;
-        float: left; }
-        .orders .order-items .item-image img {
-          width: 100%; }
-      .orders .order-items .item-title, .orders .order-items .item-price {
-        padding-left: 110px; }
+
+.order {
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 35px; }
+  .order-header, .order-body {
+    padding: 15px; }
+  .order-header {
+    box-sizing: border-box;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #eeeeee;
+    border-bottom: 1px solid #a3a3a3; }
+  .order-body {
+    padding: 15px; }
+    .order-body h2 {
+      margin: 0; }
+
+.order-items {
+  padding: 0; }
+  .order-items .item {
+    overflow: hidden;
+    margin-top: 15px; }
+    .order-items .item-image {
+      width: 100px;
+      position: relative;
+      float: left; }
+      .order-items .item-image img {
+        width: 100%; }
+    .order-items .item-title, .order-items .item-price {
+      padding-left: 110px; }
 
 .user-profile .fm-input {
   display: block;
@@ -256,4 +295,17 @@ body {
   margin-top: 10px; }
   .user-profile .fm-footer .btn {
     padding: 10px 20px; }
+
+.suggested-games-carousel {
+  overflow-x: auto; }
+  .suggested-games-carousel .game {
+    min-width: 200px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center; }
+    .suggested-games-carousel .game .img-wrap {
+      padding: 20px; }
+      .suggested-games-carousel .game .img-wrap img {
+        height: 200px; }
 

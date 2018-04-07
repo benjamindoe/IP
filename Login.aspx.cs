@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using IP;
 using Microsoft.AspNet.Identity;
 
 public partial class Login : System.Web.UI.Page
@@ -32,10 +33,18 @@ public partial class Login : System.Web.UI.Page
                     PasswordVerificationResult verificationResult = hasher.VerifyHashedPassword(hash, password);
                     if (verificationResult != PasswordVerificationResult.Failed)
                     {
+                        var user = new User()
+                        {
+                            Id = (int)reader["id"],
+                            Username = username,
+                            IsAdmin = reader["is_admin"] as bool? ?? false,
+                            Email = reader["email"].ToString()
+                        };
+                        IP.User.SetCurrentUser(user);
                         Session["isAuth"] = true;
                         Session["username"] = username;
-                        Session["userId"] = (int)reader["id"];
-                        Session["isAdmin"] = reader["is_admin"] as bool? ?? false;
+                        Session["userId"] = user.Id;
+                        Session["isAdmin"] = user.IsAdmin;
                         con.Close();
 
                         // ?redirect=/PageWhatever.aspx

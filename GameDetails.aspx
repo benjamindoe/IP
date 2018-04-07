@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <form runat="server" id="form1">
-        <div class="game">
+        <div class="gamepage-game">
             <asp:HiddenField runat="server" ID="hdnID"/>
             <asp:HiddenField runat="server" ID="hdnTitle"/>
             <asp:HiddenField runat="server" ID="hdnDescription"/>
@@ -20,7 +20,7 @@
                     <p class="price-area_price">
                         Price: <span runat="server" id="GamePrice" class=""></span>
                     </p>
-                    <asp:Button Text="ADD TO BASKET" id="btnAddBasket" runat="server" OnClick="btnAddBasket_Click" class="btn-add-basket" />
+                    <asp:Button Text="ADD TO BASKET" id="btnAddBasket" runat="server" OnClick="btnAddBasket_Click" class="btn btn-add-basket" />
                 </div>
             </div>
         </div>

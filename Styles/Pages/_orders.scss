@@ -4,53 +4,52 @@
     li {
         display: block;
     }
+}
+.order {
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-bottom: 35px;
 
-    .order {
-        border: 1px solid grey;
-        border-radius: 5px;
-        margin-bottom: 35px;
-
-        &-header, &-body {
-            padding: 15px;
-        }
-
-        &-header {
-            box-sizing: border-box;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            background: $light-grey;
-            border-bottom: 1px solid $grey;
-        }
-
-        &-body {
-            padding: 15px;
-
-            h2 {
-                margin: 0;
-            }
-        }
+    &-header, &-body {
+        padding: 15px;
     }
 
-    .order-items {
-        padding: 0;
+    &-header {
+        box-sizing: border-box;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: $light-grey;
+        border-bottom: 1px solid $grey;
+    }
 
-        .item {
-            overflow: hidden;
-            margin-top: 15px;
+    &-body {
+        padding: 15px;
 
-            &-image {
-                width: 100px;
-                position: relative;
-                float: left;
+        h2 {
+            margin: 0;
+        }
+    }
+}
 
-                img {
-                    width: 100%;
-                }
+.order-items {
+    padding: 0;
+
+    .item {
+        overflow: hidden;
+        margin-top: 15px;
+
+        &-image {
+            width: 100px;
+            position: relative;
+            float: left;
+
+            img {
+                width: 100%;
             }
+        }
 
-            &-title, &-price {
-                padding-left: 110px;
-            }
+        &-title, &-price {
+            padding-left: 110px;
         }
     }
 }

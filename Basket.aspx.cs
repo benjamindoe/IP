@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -23,6 +18,7 @@ public partial class Basket : System.Web.UI.Page
                 HtmlGenericControl html = item.ToHtml();
                 BasketContent.Controls.Add(html);
             }
+            lblSubtotal.Text = "Total Price: <strong>&pound;" + Server.HtmlEncode(basket.SubTotal.ToString()) + "<strong>";
         } else
         {
             btnCheckout.Visible = false;
@@ -38,9 +34,10 @@ public partial class Basket : System.Web.UI.Page
     {
         if (Session["isAuth"] != null && (bool)Session["isAuth"])
         {
+            var user = IP.User.GetCurrentUser();
             ShoppingBasket basket = ShoppingBasket.GetBasket();
-            string username = (string)Session["username"];
-            int userId = int.Parse(Session["userId"].ToString());
+            string username = user.Username;
+            int userId = user.Id;
             int? newID = null;
             string conStr = ConfigurationManager.ConnectionStrings["ConnectionString2"].ConnectionString;
             using (SqlConnection con = new SqlConnection(conStr))
@@ -61,6 +58,7 @@ public partial class Basket : System.Web.UI.Page
                 }
                 if (newID != null)
                 {
+                    string emailItems = "";
                     for (int i = 0; newID != null && i < basket.Count; i++)
                     {
                         using (SqlCommand cmd = new SqlCommand("INSERT INTO OrderItems ([order_id],[game_id],[quantity]) VALUES (@orderId, @gameId, @quantity)", con))
@@ -69,7 +67,17 @@ public partial class Basket : System.Web.UI.Page
                             cmd.Parameters.AddWithValue("@gameId", basket[i].Product.ID);
                             cmd.Parameters.AddWithValue("@quantity", basket[i].Quantity);
                             cmd.ExecuteScalar();
+                            emailItems += "<li>" + basket[i].Product.Title + "</li>";
                         }
+                    }
+                    if (!string.IsNullOrEmpty(user.Email))
+                    {
+                        var email = new Email()
+                        {
+                            Subject = "Order Confimation #" + newID,
+                            Body = "Thank you for your order. It costed you <strong>£" + basket.SubTotal + "</strong> in total and you purchased the following items: <u>" + emailItems + "</ul>"
+                        };
+                        email.Send(user.Email);
                     }
                     if (basket.Count > 0)
                     {

@@ -11,3 +11,22 @@
         }
     }
 }
+.suggested-games {
+    &-carousel {
+        overflow-x: auto;
+
+        .game {
+            min-width: 200px;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+                text-align: center;
+            .img-wrap {
+                padding: 20px;
+                img {
+                    height: 200px;
+                }
+            }
+        }
+    }
+}

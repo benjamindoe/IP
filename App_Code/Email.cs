@@ -10,13 +10,19 @@ using System.Net.Mail;
 public class Email
 {
     protected SmtpClient client;
+
     public Email()
     {
-
+        EmailFrom = "postmaster@sandbox619e95ee455844d5841175a8d4d14b19.mailgun.org";
+        SetClient();
     }
-    public Email(string to)
+    public Email(string from)
     {
-        EmailTo = to;
+        EmailFrom = from;
+        SetClient();
+    }
+    protected void SetClient()
+    {
         client = new SmtpClient("smtp.mailgun.org")
         {
             Credentials = new NetworkCredential(
@@ -25,12 +31,11 @@ public class Email
             )
         };
     }
-
     public string Subject { set; get; }
 
     public string Body { set; get; }
 
-    public string EmailTo { set; get; }
+    public string EmailFrom { set; get; }
 
     //public static void SendSimpleMessage()
     //{
@@ -50,15 +55,16 @@ public class Email
     //    return client.Execute(request);
     //}
 
-    public void Send(string emailFrom)
+    public void Send(string to)
     {
-        MailAddress mailTo = new MailAddress(EmailTo);
-        MailAddress mailFrom = new MailAddress(emailFrom);
+        MailAddress mailTo = new MailAddress(to);
+        MailAddress mailFrom = new MailAddress(EmailFrom);
         MailMessage message = new MailMessage(mailFrom, mailTo)
         {
             Subject = Subject,
             Body = Body
         };
+        message.IsBodyHtml = true;
         // Use the application or machine configuration to get the 
         // host, port, and credentials.
         System.Diagnostics.Debug.WriteLine("Sending an e-mail message to {0} at {1} by using the SMTP host={2}.",
@@ -69,7 +75,7 @@ public class Email
         }
         catch (Exception ex)
         {
-            System.Diagnostics.Debug.WriteLine("Exception caught in CreateTestMessage3(): {0}", ex.ToString());
+            System.Diagnostics.Debug.WriteLine("Exception caught in Send(): " + ex.ToString());
         }
     }
 }

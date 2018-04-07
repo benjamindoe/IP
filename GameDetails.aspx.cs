@@ -30,7 +30,6 @@ public partial class GameDetails : System.Web.UI.Page
                         hdnPrice.Value = reader["price"].ToString();
                         GamePrice.InnerText =  "£" + reader["price"].ToString();
                         string ageRating = reader["age_rating"].ToString();
-                        DateTime releaseDate = Convert.ToDateTime(reader["release_date"]);
                     }
                     else
                     {

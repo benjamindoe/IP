@@ -8,14 +8,13 @@ using System.Web.UI.WebControls;
 
 public partial class Admin_MasterPage : System.Web.UI.MasterPage
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Init(object sender, EventArgs e)
     {
         if (Session["isAuth"] != null && (bool)Session["isAuth"])
         {
             if (Session["isAdmin"] != null && (bool)Session["isAdmin"])
             {
                 // THEY HAVE ACCESS HERE...
-
             }
             else
             {

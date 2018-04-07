@@ -14,6 +14,7 @@
             <div class="basket-inner" id="BasketContent" runat="server"></div>
             <asp:Button ID="btnCheckout" Text="Checkout" runat="server" CssClass="btn btn-checkout" OnClick="btnCheckout_Click"/>
             <a href="/">Continue shopping</a>
+            <asp:Label ID="lblSubtotal" runat="server" CssClass="basket-subtotal"></asp:Label>
         </div>
     </form>
 </asp:Content>

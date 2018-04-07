@@ -35,10 +35,12 @@ public partial class Orders : System.Web.UI.Page
                             ON
                                 [Games].[id] = [OrderItems].[game_id]
                             WHERE
-                                [Orders].[user_id] = @id";
+                                [Orders].[user_id] = @id
+                            ORDER BY [Orders].[date] DESC, [Orders].[id] DESC";
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
-                cmd.Parameters.AddWithValue("@id", Session["userId"].ToString());
+                var user = IP.User.GetCurrentUser();
+                cmd.Parameters.AddWithValue("@id", user.Id);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -91,6 +93,11 @@ public partial class Orders : System.Web.UI.Page
                 }
                 orderHeader.Controls.Add(divDetail);
             }
+            HtmlAnchor lnkDetail = new HtmlAnchor
+            {
+                HRef = "Order.aspx?id=" + reader["id"]
+            };
+            orderHeader.Controls.Add(lnkDetail);
             HtmlGenericControl orderBody = new HtmlGenericControl("div");
             orderBody.Attributes.Add("class", "order-body");
             order.Controls.Add(orderBody);
@@ -109,7 +116,7 @@ public partial class Orders : System.Web.UI.Page
 
     }
 
-    protected void BuildOrderItems(ref HtmlGenericControl ulItems, SqlDataReader reader)
+    public void BuildOrderItems(ref HtmlGenericControl ulItems, SqlDataReader reader)
     {
         string[] details = new string[] { "image", "title", "price" };
         HtmlGenericControl liItem = new HtmlGenericControl("li");

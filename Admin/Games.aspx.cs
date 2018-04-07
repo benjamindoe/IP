@@ -34,7 +34,6 @@ public partial class Admin_Games : System.Web.UI.Page
         {
             GamesSqlDataSource.UpdateParameters["image"].DefaultValue = oldFile.Value;
         }
-        //GamesSqlDataSource.DataBind();
         GamesSqlDataSource.Update();
         return;
     }
@@ -45,18 +44,18 @@ public partial class Admin_Games : System.Web.UI.Page
         GridViewRow footerRow = GridView1.FooterRow;
         if (e.CommandName == "Insert" && Page.IsValid)
         {
-            TextBox title = (TextBox)footerRow.FindControl("txtNewTitle");
-            TextBox description = (TextBox)footerRow.FindControl("txtNewDescription");
-            TextBox price = (TextBox)footerRow.FindControl("txtNewPrice");
-            TextBox releaseDate = (TextBox)footerRow.FindControl("txtNewReleaseDate");
-            TextBox ageRating = (TextBox)footerRow.FindControl("txtNewAge");
-            FileUpload file = (FileUpload)footerRow.FindControl("fileNewImage");
+            var title = (TextBox)footerRow.FindControl("txtNewTitle");
+            var description = (TextBox)footerRow.FindControl("txtNewDescription");
+            var price = (TextBox)footerRow.FindControl("txtNewPrice");
+            var ageRating = (TextBox)footerRow.FindControl("txtNewAge");
+            var category = (DropDownList)footerRow.FindControl("ddlNewCategory");
+            var file = (FileUpload)footerRow.FindControl("fileNewImage");
 
             GamesSqlDataSource.InsertParameters["title"].DefaultValue = title.Text;
             GamesSqlDataSource.InsertParameters["description"].DefaultValue = description.Text;
             GamesSqlDataSource.InsertParameters["price"].DefaultValue = price.Text;
-            GamesSqlDataSource.InsertParameters["release_date"].DefaultValue = releaseDate.Text;
             GamesSqlDataSource.InsertParameters["age_rating"].DefaultValue = ageRating.Text;
+            GamesSqlDataSource.InsertParameters["category"].DefaultValue = category.Text;
 
             try
             {

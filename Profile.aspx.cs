@@ -6,22 +6,24 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 public partial class UserProfile : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        var user = IP.User.GetCurrentUser();
+        string connectionStr = ConfigurationManager.ConnectionStrings["ConnectionString2"].ConnectionString;
         if (!Page.IsPostBack)
         {
-            string connectionStr = ConfigurationManager.ConnectionStrings["ConnectionString2"].ConnectionString;
             using (SqlConnection con = new SqlConnection(connectionStr))
             {
-                con.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT TOP 1 * FROM Users WHERE Username = @username ", con))
                 {
-                    cmd.Parameters.AddWithValue("@username", (string)Session["username"]);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@username", user.Username);
+                    var reader = cmd.ExecuteReader();
                     if (reader.HasRows)
                     {
                         reader.Read();
@@ -30,11 +32,10 @@ public partial class UserProfile : System.Web.UI.Page
                         txtPhone.Text = reader["phone"].ToString();
                         txtEmail.Text = reader["email"].ToString();
                     }
+                    con.Close();
                 }
-                con.Close();
             }
         }
-
     }
 
     protected void Submit_Click(object sender, EventArgs e)
