@@ -1,19 +1,46 @@
 .gamepage-game {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     padding: 50px;
 
     .left-col, .right-col {
-        width: 100%;
         position: relative;
+    }
+
+    .right-col {
+        width: 60%;
     }
 
     .left-col {
         max-width: 250px;
         margin-right: 20px;
     }
+
+    .avg-star-rating, .user-review {
+        .star-filled {
+            color: gold;
+        }
+    }
+
+    .user-review {
+        border-bottom: 1px solid $grey;
+
+        .username, .comment-stars {
+            display: inline-block;
+        }
+
+        .username {
+            margin-right: 20px;
+
+            img {
+                vertical-align: middle;
+                width: 40px;
+                margin-right: 5px;
+            }
+        }
+    }
 }
-.game{
+.game {
 
     &-image {
         width: 250px;
@@ -21,6 +48,19 @@
 
     &-description {
         margin-bottom: 50px;
+    }
+
+    &-review-area {
+        width: 100%;
+
+
+        .star-rating {
+            margin-bottom: 10px;
+
+            .star {
+                cursor: pointer;
+            }
+        }
     }
 
     .price-area {

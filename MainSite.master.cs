@@ -7,7 +7,7 @@ public partial class MainSite : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["isAuth"] != null && (bool)Session["isAuth"])
+        if (IP.User.IsAuth())
         {
             ulNavBar.Controls.Remove(liCart);
             ulNavBar.Controls.Remove(liLogin);

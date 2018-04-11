@@ -216,20 +216,40 @@ body {
 
 .gamepage-game {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   padding: 50px; }
   .gamepage-game .left-col, .gamepage-game .right-col {
-    width: 100%;
     position: relative; }
+  .gamepage-game .right-col {
+    width: 60%; }
   .gamepage-game .left-col {
     max-width: 250px;
     margin-right: 20px; }
+  .gamepage-game .avg-star-rating .star-filled, .gamepage-game .user-review .star-filled {
+    color: gold; }
+  .gamepage-game .user-review {
+    border-bottom: 1px solid #a3a3a3; }
+    .gamepage-game .user-review .username, .gamepage-game .user-review .comment-stars {
+      display: inline-block; }
+    .gamepage-game .user-review .username {
+      margin-right: 20px; }
+      .gamepage-game .user-review .username img {
+        vertical-align: middle;
+        width: 40px;
+        margin-right: 5px; }
 
 .game-image {
   width: 250px; }
 
 .game-description {
   margin-bottom: 50px; }
+
+.game-review-area {
+  width: 100%; }
+  .game-review-area .star-rating {
+    margin-bottom: 10px; }
+    .game-review-area .star-rating .star {
+      cursor: pointer; }
 
 .game .price-area {
   max-width: 250px;

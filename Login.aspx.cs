@@ -8,7 +8,10 @@ public partial class Login : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (IP.User.IsAuth())
+        {
+            Redirect();
+        }
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
@@ -48,8 +51,7 @@ public partial class Login : System.Web.UI.Page
                         con.Close();
 
                         // ?redirect=/PageWhatever.aspx
-                        string redirUrl = Request.QueryString["redirect"] != null ? Request.QueryString["redirect"] : "/";
-                        Response.Redirect(redirUrl);
+                        Redirect();
                     }
                     else
                     {
@@ -65,5 +67,10 @@ public partial class Login : System.Web.UI.Page
             }
             con.Close();
         }
+    }
+    public void Redirect()
+    {
+        string redirUrl = Request.QueryString["redirect"] ?? "/";
+        Response.Redirect(redirUrl);
     }
 }

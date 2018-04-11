@@ -19,7 +19,7 @@ public partial class Register : System.Web.UI.Page
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
-            string conStr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            string conStr = ConfigurationManager.ConnectionStrings["ConnectionString2"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(conStr))
             {
                 conn.Open();

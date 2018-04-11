@@ -1,5 +1,4 @@
 ﻿using System.Web;
-
 namespace IP
 {
 
@@ -26,6 +25,11 @@ namespace IP
         public static void SetCurrentUser(User user)
         {
             HttpContext.Current.Session["User"] = user;
+        }
+
+        public static bool IsAuth()
+        {
+            return HttpContext.Current.Session["isAuth"] != null && (bool)HttpContext.Current.Session["isAuth"];
         }
     }
 }
