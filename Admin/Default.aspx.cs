@@ -31,7 +31,7 @@ public partial class Admin_Default : System.Web.UI.Page
                 if (reader.HasRows)
                 {
                     var historicLimit = 6; //months
-                    var monthNames = Enumerable.Range(1, 6).Select(i => DateTime.Now.AddMonths(-i).ToString("MMMM"));
+                    var monthNames = Enumerable.Range(0, 6).Reverse().Select(i => DateTime.Now.AddMonths(-i).ToString("MMMM"));
                     var SumOfCosts = new decimal[historicLimit];
                     var totalOrders = new int[historicLimit];
                     var j = historicLimit - 1;
